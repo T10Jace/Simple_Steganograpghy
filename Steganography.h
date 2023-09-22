@@ -7,21 +7,20 @@
 
 **/
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
 #ifndef STEGANOGRAPHY_H
 #define STEGANOGRAPHY_H
-
-
-//#include <iostream>
-//#include <fstream>
-//#include <string>
-//#include <vector>
 
 
 class Steganography {
 
  private:
   
-  string magicNumber; // P3 Value
+  std::string magicNumber; // P3 Value
   
   int width; // image width
   
@@ -29,9 +28,9 @@ class Steganography {
   
   int maxColor; // Maximum color depth of the image
   
-  vector<int> colorData; // 
+  std::vector<int> colorData; // 
   
-  string cipherText; // Hidden data to encode/decode
+  std::string cipherText; // Hidden data to encode/decode
   
   int getNthBit(char cipherChar, int n); // returns the nth bit from the character that is being encoded.
 
@@ -39,13 +38,13 @@ class Steganography {
   
  public:
 
-  void readImage(string fileName); // - Reads in the PPM image with the provided fileName, storing it in the member variables
+  void readImage(std::string fileName); // - Reads in the PPM image with the provided fileName, storing it in the member variables
       
-  void printImage(string fileName); // - Writes the PPM image stored in member data to the provided fileName
+  void printImage(std::string fileName); // - Writes the PPM image stored in member data to the provided fileName
       
-  void readCipherText(string fileName);// - reads the plain text file (ciphertext) with the name fileName and stores it in the member data
+  void readCipherText(std::string fileName);// - reads the plain text file (ciphertext) with the name fileName and stores it in the member data
       
-  void printCipherText(string fileName); // - writes the plain text (ciphertext) to the file fileName
+  void printCipherText(std::string fileName); // - writes the plain text (ciphertext) to the file fileName
       
   void cleanImage()  // - Zeros out the least significant bigt of each color value in colorData
       
