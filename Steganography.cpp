@@ -118,6 +118,7 @@ void Steganography::readCipherText(string filename)
     exit(1);
   }*/
   
+  
   while(file)
     {
     file >> tempvar;

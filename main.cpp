@@ -17,7 +17,7 @@ int main()
     cout << "Enter a file name " << endl;
     cin  >> filename;
 
-    a.readImage(filename);
+    //a.readImage(filename);
     a.readCipherText(filename);
     a.printCipherText(filename);
     //a.printImage(filename);
