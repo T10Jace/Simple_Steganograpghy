@@ -1,16 +1,16 @@
 CC = g++
 CLAFGS = -g -Wall -Wextra
 
-default: stegonography
+default: steganography
 
-stegonography:	Stegonography.o main.o
-	$(CC) $(CFLAGS) -o stegonography Stegonography.o main.o
+steganography:	Steganography.o main.o
+	$(CC) $(CFLAGS) -o steganography Steganography.o main.o
 
-Stegonography.o:	Stegonography.cpp Steganography.h
+Stegonography.o:	Steganography.cpp Steganography.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 main.o: main.cpp Steganography.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 clean:
-	$(RM) stegonography *.o *~
+	$(RM) steganography *.o *~

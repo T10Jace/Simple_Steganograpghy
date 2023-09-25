@@ -67,17 +67,17 @@ void Steganography::printImage(string fileName)
   }
 }
 
-void Steganography::readCipherText(string fileName)
+void Steganography::readCipherText(string filename)
 {
-  string buffer;
+  string buffer;                //Vocabulary 
   string formatcomp = magicNumber + "\n";
   int holdint;
   int counter;
 
-  ifstream file;                
-  file.open(fileName.c_str()); // Opens file requested by user
+  ifstream file;                //File activator
+  file.open(fileName.c_str());
 
-  getline(file, buffer)     
+  getline(file, buffer)         //Checking & Skipping the format
   if (buffer != formatcomp)
   {
     cout << "Error! Are you using the right file type?" << endl;
@@ -87,20 +87,22 @@ void Steganography::readCipherText(string fileName)
   //      may need to be updated should there be those #Notes
   while(!eof)
   {
-    cin >> buffer;
-    if (buffer != "\n")
+    file >> tempvar;
+    if(iteration % 9 != 8)
     {
-      holdint = stoi(buffer);
-      if (holdint % 2 == 1)
-        cout << "X"
-      else
-        cout << " "
+      holdbits += to_string(tempvar % 2); //Adds bits to a string
     }
-    counter++;
-    if (counter % width == 0)
-      cout << endl;
+    else
+    {
+      alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
+      cout << holdbits << " " << alpha << endl;
+      iteration = -1;                     //Resets the Bit-string & loop
+      holdbits.clear();
+    }
+    i++;
+    iteration++;
   }
-  cout << endl;
+  file.close();
 }
 
 void Steganography::printCipherText(const std::string& fileName) {
