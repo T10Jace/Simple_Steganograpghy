@@ -15,6 +15,8 @@ int main()
   int row;
   int col;
 
+  //This bit is the setup bit (Getting stuff like the message, file name, and dimensions_)
+
   cout << "Welcome to the secret message creator!" << endl
        << "Firstly, please enter the name of the file you would like to hide it in:" << endl;
   cin >> inflnm;
@@ -65,6 +67,8 @@ int main()
 
   cout << "Initial file creation complete." << endl;
 
+  //This bit converts the message into Binary
+
   int holdint;
   i = 0;
   int j = 0;
@@ -95,6 +99,8 @@ int main()
 
   cout << "Message successfully converted to BOOL." << endl;
   
+  //This bit encodes the thing into an RGB Value
+
   int debugint;
   int desired;
   i = 0;
@@ -113,6 +119,7 @@ int main()
       outfile << debugint;
       j++;
     }
+
     else
     {
       debugint = rand() % 255;
@@ -124,6 +131,7 @@ int main()
     {
       outfile << "\n";
     }
+    
     else
     {
       outfile << " ";
