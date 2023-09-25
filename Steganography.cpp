@@ -69,27 +69,15 @@ void Steganography::printImage(string fileName)
 
 void Steganography::readCipherText(string filename)
 {
-<<<<<<< HEAD:Steganography.cpp
-  string buffer;                //Vocabulary 
-=======
-Jriley
   string buffer;
->>>>>>> 39da9858f41cc5bd72352819777376175348a2cd:Stegonography.cpp
   string formatcomp = magicNumber + "\n";
   int holdint;
   int counter;
 
-<<<<<<< HEAD:Steganography.cpp
-  ifstream file;                //File activator
-  file.open(fileName.c_str());
-
-  getline(file, buffer)         //Checking & Skipping the format
-=======
   ifstream file;                
   file.open(fileName.c_str()); // Opens file requested by user
 
   getline(file, buffer)     
->>>>>>> 39da9858f41cc5bd72352819777376175348a2cd:Stegonography.cpp
   if (buffer != formatcomp)
   {
     cout << "Error! Are you using the right file type?" << endl;
@@ -123,13 +111,14 @@ void Steganography::printCipherText(string fileName)
 
   //Read-in Loop
   while(!file.eof())
-main
   {
     file >> tempvar;
+
     if(iteration % 9 != 8)
     {
       holdbits += to_string(tempvar % 2); //Adds bits to a string
     }
+
     else
     {
       alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
@@ -137,9 +126,12 @@ main
       iteration = -1;                     //Resets the Bit-string & loop
       holdbits.clear();
     }
+
     i++;
     iteration++;
+
   }
+  
   file.close();
 }
 
@@ -172,8 +164,8 @@ for (int i = 0; i < colorData.size(); ++i) {
 void Steganography::encipher() {
     // Ensure that the cipherText can be fully embedded in the image
     if (cipherText.size() * 8 > colorData.size()) {
-        std::cerr << "Error: Not enough space in the image to encipher the text." << std::endl;
-        return;
+        std::cout << "Error: Not enough space in the image to encipher the text." << std::endl;
+        exit(1);
     }
 
     // Iterate over each character in the cipherText
