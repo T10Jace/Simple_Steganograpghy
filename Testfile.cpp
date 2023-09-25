@@ -36,7 +36,7 @@ int main()
         else
         {
             alpha = stoi(holdbits, nullptr, 2);
-            cout << holdbits << " " << alpha << endl;
+            cout << alpha << endl;
             iteration = -1;
             holdbits.clear();
         }
