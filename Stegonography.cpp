@@ -15,9 +15,25 @@ Steganography::Steganography() {
 }
 
 int Steganography::getNthBit(char cipherChar, int n) {
-    // Shift the nth bit to the rightmost position (bit 0) and mask it
-    int maskedBit = (cipherChar >> n) & 1; // Found a shift (>>) operator and an AND (&) operator online that are VERY useful
-    return maskedBit;
+  int parr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+
+  int holdint = cipherChar
+  int j = 0;
+  string boolstring;
+  while (j < 8)
+  {
+    if (holdint >= parr[j])
+    {
+      boolstring += '1';
+      holdint -= parr[j];
+    }
+    else
+    {
+      boolstring += '0';
+    }
+    j++;
+  }
+  return boolstring[n] - 48;
 }
 
 
@@ -69,7 +85,6 @@ void Steganography::printImage(string fileName)
 
 void Steganography::readCipherText(string filename)
 {
-Jriley
   string buffer;
   string formatcomp = magicNumber + "\n";
   int holdint;
@@ -112,7 +127,6 @@ void Steganography::printCipherText(string fileName)
 
   //Read-in Loop
   while(!file.eof())
-main
   {
     file >> tempvar;
     if(iteration % 9 != 8)
