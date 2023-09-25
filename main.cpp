@@ -2,6 +2,8 @@
 using namespace std;
 #include <fstream>
 #include <vector>
+
+
 #include <string>
 #include "Steganography.h"
 
