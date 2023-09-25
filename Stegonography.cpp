@@ -67,8 +67,9 @@ void Steganography::printImage(string fileName)
   }
 }
 
-void Steganography::readCipherText(string fileName)
+void Steganography::readCipherText(string filename)
 {
+Jriley
   string buffer;
   string formatcomp = magicNumber + "\n";
   int holdint;
@@ -86,21 +87,49 @@ void Steganography::readCipherText(string fileName)
   //Note: The following code assumes there are no #Notes in the PPM File. This code
   //      may need to be updated should there be those #Notes
   while(!eof)
+
+}
+
+void Steganography::printCipherText(string fileName)
+{
+  //Initializer Vocabulary
+  ifstream file;
+  string junk;
+
+  cout << endl << endl;
+  file.open(fileName.c_str());
+
+  getline(file, junk);  
+  getline(file, junk);
+  getline(file, junk);
+
+  //Read-In Vocabulary
+  int i = 0;
+  int tempvar;
+  int iteration = 0;
+  string holdbits;
+  char alpha;
+
+  //Read-in Loop
+  while(!file.eof())
+main
   {
-    cin >> buffer;
-    if (buffer != "\n")
+    file >> tempvar;
+    if(iteration % 9 != 8)
     {
-      holdint = stoi(buffer);
-      if (holdint % 2 == 1)
-        cout << "X"
-      else
-        cout << " "
+      holdbits += to_string(tempvar % 2); //Adds bits to a string
     }
-    counter++;
-    if (counter % width == 0)
-      cout << endl;
+    else
+    {
+      alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
+      cout << holdbits << " " << alpha << endl;
+      iteration = -1;                     //Resets the Bit-string & loop
+      holdbits.clear();
+    }
+    i++;
+    iteration++;
   }
-  cout << endl;
+  file.close();
 }
 
 void Steganography::printCipherText(const std::string& fileName) {
