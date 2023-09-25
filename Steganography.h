@@ -38,6 +38,8 @@ class Steganography {
   
  public:
 
+  Steganography(); // initializes members
+
   void readImage(std::string fileName); // - Reads in the PPM image with the provided fileName, storing it in the member variables
       
   void printImage(std::string fileName); // - Writes the PPM image stored in member data to the provided fileName
