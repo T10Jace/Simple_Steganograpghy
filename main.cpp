@@ -19,6 +19,6 @@ int main()
     cin >> filename;
 
     a.printCipherText(filename);
-
+    
     return 0;
 }
