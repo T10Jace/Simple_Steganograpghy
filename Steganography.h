@@ -1,8 +1,8 @@
 /**
 
- * Authors: Jace Riley and Jesse Doescher
- * Date: 09/20/2023
- * File: Steganography.h
+ *     Authors: Jace Riley and Jesse Doescher
+ *        Date: 09/20/2023
+ *        File: Steganography.h
  * Description: This file holds all of the private and public members to be used in the .cpp files.
 
 **/
@@ -46,7 +46,7 @@ class Steganography {
       
   void printCipherText(std::string fileName); // - writes the plain text (ciphertext) to the file fileName
       
-  void cleanImage()  // - Zeros out the least significant bigt of each color value in colorData
+  void cleanImage()  // - Zeros out the least significant bit of each color value in colorData
       
   void encipher()  // - stores the text from cipherText in the image colorData
       

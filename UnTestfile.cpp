@@ -119,6 +119,7 @@ int main()
       outfile << debugint;
       j++;
     }
+
     else
     {
       debugint = rand() % 255;
@@ -130,6 +131,7 @@ int main()
     {
       outfile << "\n";
     }
+    
     else
     {
       outfile << " ";

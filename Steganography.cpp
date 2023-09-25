@@ -1,3 +1,14 @@
+/**
+
+ *     Authors: Jace Riley and Jesse Doescher
+ *        Date: 09/25/2023
+ *        File: Steganography.cpp
+ * Description: This file implements the functions that are needed in order to
+ *                read from and create files, encode and decode messages, and print
+ *                an image based upon the user's inputs.
+
+**/
+
 #include <iostream>
 using namespace std;
 #include <fstream>
@@ -130,10 +141,12 @@ void Steganography::printCipherText(string fileName)
   while(!file.eof())
   {
     file >> tempvar;
+
     if(iteration % 9 != 8)
     {
       holdbits += to_string(tempvar % 2); //Adds bits to a string
     }
+
     else
     {
       alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
@@ -141,29 +154,14 @@ void Steganography::printCipherText(string fileName)
       iteration = -1;                     //Resets the Bit-string & loop
       holdbits.clear();
     }
+
     i++;
     iteration++;
+
   }
+
   file.close();
 }
-
-void Steganography::printCipherText(const std::string& fileName) {
-    // Open the file for writing
-    std::ofstream outputFile(fileName);
-
-    // Check if the file was opened successfully
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Unable to open the output file." << std::endl;
-        return;
-    }
-
-    // Write the cipherText to the file
-    outputFile << cipherText;
-
-    // Close the file
-    outputFile.close();
-}
-
 
 void Steganography::cleanImage()
 {
@@ -176,8 +174,8 @@ for (int i = 0; i < colorData.size(); ++i) {
 void Steganography::encipher() {
     // Ensure that the cipherText can be fully embedded in the image
     if (cipherText.size() * 8 > colorData.size()) {
-        std::cerr << "Error: Not enough space in the image to encipher the text." << std::endl;
-        return;
+        std::cout << "Error: Not enough space in the image to encipher the text." << std::endl;
+        exit(1);
     }
 
     // Iterate over each character in the cipherText
