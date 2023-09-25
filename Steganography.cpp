@@ -129,10 +129,12 @@ void Steganography::printCipherText(string fileName)
   while(!file.eof())
   {
     file >> tempvar;
+
     if(iteration % 9 != 8)
     {
       holdbits += to_string(tempvar % 2); //Adds bits to a string
     }
+
     else
     {
       alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
@@ -140,9 +142,12 @@ void Steganography::printCipherText(string fileName)
       iteration = -1;                     //Resets the Bit-string & loop
       holdbits.clear();
     }
+
     i++;
     iteration++;
+
   }
+  
   file.close();
 }
 
@@ -175,8 +180,8 @@ for (int i = 0; i < colorData.size(); ++i) {
 void Steganography::encipher() {
     // Ensure that the cipherText can be fully embedded in the image
     if (cipherText.size() * 8 > colorData.size()) {
-        std::cerr << "Error: Not enough space in the image to encipher the text." << std::endl;
-        return;
+        std::cout << "Error: Not enough space in the image to encipher the text." << std::endl;
+        exit(1);
     }
 
     // Iterate over each character in the cipherText
