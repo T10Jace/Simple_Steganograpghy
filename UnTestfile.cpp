@@ -36,11 +36,7 @@ int main()
 
   //This is the math to find the dimensions of the pixel array
   int i = 0;
-  while (i * i <= holdnum)
-    i++;
-  if (i * i == holdnum)
-    row = col = i;
-  else if (holdnum % 9 == 0)
+  if (holdnum % 9 == 0)
   {
     col = holdnum/9;
     row = 9;
@@ -72,10 +68,9 @@ int main()
   int holdint;
   i = 0;
   int j = 0;
-  int k = 0;
   int mlength = message.length();
   string boolstring;
-  int power;
+  int parr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
 
   while (i < mlength)
   {
@@ -83,20 +78,16 @@ int main()
     j = 0;
     while (j < 8)
     {
-      power = 1;
-      k = 0;
-      while (k < 8 - j)
-      {
-        power *= 2;
-        k++;
-      }
-      if (holdint % k == 1)
+
+      if (holdint >= parr[j])
       {
         boolstring += '1';
-        holdint /= 2;
+        holdint -= parr[j];
       }
       else
+      {
         boolstring += '0';
+      }
       j++;
     }
     i++;
@@ -107,21 +98,20 @@ int main()
   int debugint;
   int desired;
   i = 0;
+  j = 0;
 
-  cout << boolstring;
-
-  while (i < holdnum)
+  while (i < holdnum * 3)
   {
     if (i % 9 != 8)
     {
-      desired = boolstring[i] - 48;
+      desired = boolstring[j] - 48;
       debugint = rand() % 255;
       if (debugint % 2 != desired)
         debugint -= 1;
       if (debugint == -1)
         debugint = 255;
       outfile << debugint;
-      cout << debugint << "/" << desired;
+      j++;
     }
     else
     {
@@ -133,12 +123,10 @@ int main()
     if (i % 3 == 2)
     {
       outfile << "\n";
-      cout << "\n";
     }
     else
     {
       outfile << " ";
-      cout << " ";
     }  
 
     i++;

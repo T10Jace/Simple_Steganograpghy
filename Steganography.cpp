@@ -69,15 +69,27 @@ void Steganography::printImage(string fileName)
 
 void Steganography::readCipherText(string filename)
 {
+<<<<<<< HEAD:Steganography.cpp
   string buffer;                //Vocabulary 
+=======
+Jriley
+  string buffer;
+>>>>>>> 39da9858f41cc5bd72352819777376175348a2cd:Stegonography.cpp
   string formatcomp = magicNumber + "\n";
   int holdint;
   int counter;
 
+<<<<<<< HEAD:Steganography.cpp
   ifstream file;                //File activator
   file.open(fileName.c_str());
 
   getline(file, buffer)         //Checking & Skipping the format
+=======
+  ifstream file;                
+  file.open(fileName.c_str()); // Opens file requested by user
+
+  getline(file, buffer)     
+>>>>>>> 39da9858f41cc5bd72352819777376175348a2cd:Stegonography.cpp
   if (buffer != formatcomp)
   {
     cout << "Error! Are you using the right file type?" << endl;
@@ -86,6 +98,32 @@ void Steganography::readCipherText(string filename)
   //Note: The following code assumes there are no #Notes in the PPM File. This code
   //      may need to be updated should there be those #Notes
   while(!eof)
+
+}
+
+void Steganography::printCipherText(string fileName)
+{
+  //Initializer Vocabulary
+  ifstream file;
+  string junk;
+
+  cout << endl << endl;
+  file.open(fileName.c_str());
+
+  getline(file, junk);  
+  getline(file, junk);
+  getline(file, junk);
+
+  //Read-In Vocabulary
+  int i = 0;
+  int tempvar;
+  int iteration = 0;
+  string holdbits;
+  char alpha;
+
+  //Read-in Loop
+  while(!file.eof())
+main
   {
     file >> tempvar;
     if(iteration % 9 != 8)
@@ -95,7 +133,7 @@ void Steganography::readCipherText(string filename)
     else
     {
       alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
-      cout << holdbits << " " << alpha << endl;
+      cout << alpha;
       iteration = -1;                     //Resets the Bit-string & loop
       holdbits.clear();
     }
