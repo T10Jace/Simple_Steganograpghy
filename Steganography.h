@@ -1,8 +1,8 @@
 /**
 
- * Authors: Jace Riley and Jesse Doescher
- * Date: 09/20/2023
- * File: Steganography.h
+ *     Authors: Jace Riley and Jesse Doescher
+ *        Date: 09/20/2023
+ *        File: Steganography.h
  * Description: This file holds all of the private and public members to be used in the .cpp files.
 
 **/

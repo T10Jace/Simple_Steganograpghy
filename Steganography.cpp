@@ -1,3 +1,14 @@
+/**
+
+ *     Authors: Jace Riley and Jesse Doescher
+ *        Date: 09/25/2023
+ *        File: Steganography.cpp
+ * Description: This file implements the functions that are needed in order to
+ *                read from and create files, encode and decode messages, and print
+ *                an image based upon the user's inputs.
+
+**/
+
 #include <iostream>
 using namespace std;
 #include <fstream>
@@ -147,27 +158,9 @@ void Steganography::printCipherText(string fileName)
     iteration++;
 
   }
-  
+
   file.close();
 }
-
-void Steganography::printCipherText(const std::string& fileName) {
-    // Open the file for writing
-    std::ofstream outputFile(fileName);
-
-    // Check if the file was opened successfully
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Unable to open the output file." << std::endl;
-        return;
-    }
-
-    // Write the cipherText to the file
-    outputFile << cipherText;
-
-    // Close the file
-    outputFile.close();
-}
-
 
 void Steganography::cleanImage()
 {
