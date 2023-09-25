@@ -25,6 +25,8 @@ int main()
     string holdbits;
     char alpha;
  
+    //This bit serves to output the binary bit of each RGB value
+
     while(!file.eof())
     {
         file >> tempvar;
@@ -36,7 +38,7 @@ int main()
         else
         {
             alpha = stoi(holdbits, nullptr, 2);
-            cout << alpha << endl;
+            cout << alpha;      //Note: Cout here could be changed for a Dynamic Array or Vector.
             iteration = -1;
             holdbits.clear();
         }
