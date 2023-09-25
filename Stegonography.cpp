@@ -62,7 +62,7 @@ void Steganography::printCipherText(string fileName)
     else
     {
       alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
-      cout << holdbits << " " << alpha << endl;
+      cout << alpha;
       iteration = -1;                     //Resets the Bit-string & loop
       holdbits.clear();
     }
