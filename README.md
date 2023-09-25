@@ -1,3 +1,4 @@
+
 HELLO THERE!
 
 To create a file for the function to read, you can use the included "UnTestfile.cpp" program to easily and quickly make it.
@@ -21,3 +22,9 @@ Else, you can use the following format:
 
 }
 note: One character contains 8 bits. To keep things even, every 9th RGB value is skipped.
+
+
+ #  Authors: Jace Riley and Jesse Doescher
+ #     Date: 09/25/2023
+ #     File: README.md
+
