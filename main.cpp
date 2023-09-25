@@ -3,9 +3,9 @@ using namespace std;
 #include <fstream>
 #include <vector>
 
-
 #include <string>
 #include "Steganography.h"
+
 
 int main()
 {
@@ -13,8 +13,12 @@ int main()
     
     Steganography a;
 
-    a.Steganography();
-    
+    string filename;
 
+    cout << "Enter a file name " << endl;
+    cin >> filename;
+
+    a.printCipherText(filename);
+    
     return 0;
 }
