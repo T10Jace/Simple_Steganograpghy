@@ -14,6 +14,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 #include <vector>
+#include "Steganography.h"
 
 Steganography::Steganography() {
     // Initialize member variables to default values
