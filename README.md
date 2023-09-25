@@ -2,7 +2,7 @@
 HELLO THERE!
 
 To create a file for the function to read, you can use the included "UnTestfile.cpp" program to easily and quickly make it.
-Else, you can use the following format:
+Else, you can use the following format (NOTE: The program ASSUMES you're in P3 format):
 
 {
     
