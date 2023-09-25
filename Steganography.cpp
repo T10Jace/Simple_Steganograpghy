@@ -18,7 +18,7 @@ using namespace std;
 
 Steganography::Steganography() {
     // Initialize member variables to default values
-    magicNumber = "P3"; // Default magic number for P3 format
+    magicNumber = 0; // Default magic number for P3 format
     width = 0;
     height = 0;
     maxColor = 255; // Default maximum color depth

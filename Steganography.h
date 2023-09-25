@@ -46,11 +46,11 @@ class Steganography {
       
   void printCipherText(std::string fileName); // - writes the plain text (ciphertext) to the file fileName
       
-  void cleanImage()  // - Zeros out the least significant bit of each color value in colorData
+  void cleanImage();  // - Zeros out the least significant bit of each color value in colorData
       
-  void encipher()  // - stores the text from cipherText in the image colorData
+  void encipher();  // - stores the text from cipherText in the image colorData
       
-  void decipher()  // - reads the ciphertext back from colorData and stores it in cipherText
+  void decipher();  // - reads the ciphertext back from colorData and stores it in cipherText
       
 };
 #endif //STEGANOGRAPHY_H
