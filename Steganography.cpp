@@ -18,7 +18,7 @@ using namespace std;
 
 Steganography::Steganography() {
     // Initialize member variables to default values
-    magicNumber = 0; // Default magic number for P3 format
+    magicNumber = 3; // Default magic number for P3 format
     width = 0;
     height = 0;
     maxColor = 255; // Default maximum color depth
@@ -29,7 +29,7 @@ Steganography::Steganography() {
 int Steganography::getNthBit(char cipherChar, int n) {
   int parr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
 
-  int holdint = cipherChar
+  int holdint = cipherChar;
   int j = 0;
   string boolstring;
   while (j < 8)
@@ -49,10 +49,10 @@ int Steganography::getNthBit(char cipherChar, int n) {
 }
 
 
-void Steganography::readImage(string fileName){
+void Steganography::readImage(string filename){
 
     // Open the file for reading
-    std::ifstream inputFile(fileName);
+    std::ifstream inputFile(filename);
 
     // Check if the file was opened successfully
     if (!inputFile.is_open()) {
@@ -79,7 +79,7 @@ void Steganography::readImage(string fileName){
 }
 
 
-void Steganography::printImage(string fileName)
+void Steganography::printImage(string filename)
 {
   int i = 0;
   int j = 0;
@@ -101,30 +101,55 @@ void Steganography::readCipherText(string filename)
   string formatcomp = magicNumber + "\n";
   int holdint;
   int counter;
+  int i = 0;
+  int tempvar;
+  int iteration = 0;
+  string holdbits;
+  char alpha;
 
   ifstream file;                
-  file.open(fileName.c_str()); // Opens file requested by user
+  file.open(filename.c_str()); // Opens file requested by user
 
-  getline(file, buffer)     
+  getline(file, buffer);     
+  /*
   if (buffer != formatcomp)
   {
     cout << "Error! Are you using the right file type?" << endl;
-    return 1;
-  }
-  //Note: The following code assumes there are no #Notes in the PPM File. This code
-  //      may need to be updated should there be those #Notes
-  while(!eof)
+    exit(1);
+  }*/
+  
+  
+  while(file)
+    {
+    file >> tempvar;
+    if(iteration % 9 != 8)
+    {
+      holdbits += to_string(tempvar % 2); //Adds bits to a string
+    }
+    else
+    {
+      alpha = stoi(holdbits, nullptr, 2); //Converts the Bit-string to a Char and couts it.
+      cout << alpha;
+      iteration = -1;                     //Resets the Bit-string & loop
+      holdbits.clear();
+    }
+    i++;
+    iteration++;
 
+    cout << iteration;
+  }
+
+  file.close();
 }
 
-void Steganography::printCipherText(string fileName)
+void Steganography::printCipherText(string filename)
 {
   //Initializer Vocabulary
   ifstream file;
   string junk;
 
   cout << endl << endl;
-  file.open(fileName.c_str());
+  file.open(filename.c_str());
 
   getline(file, junk);  
   getline(file, junk);
@@ -161,6 +186,7 @@ void Steganography::printCipherText(string fileName)
   }
 
   file.close();
+  cout << endl;
 }
 
 void Steganography::cleanImage()
