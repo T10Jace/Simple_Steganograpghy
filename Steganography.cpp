@@ -16,8 +16,6 @@ using namespace std;
 #include <vector>
 #include "Steganography.h"
 
-#include "Steganography.h"
-
 Steganography::Steganography() {
     // Initialize member variables to default values
     magicNumber = 0; // Default magic number for P3 format
