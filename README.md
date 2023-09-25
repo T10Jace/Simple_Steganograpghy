@@ -7,7 +7,7 @@ Else, you can use the following format:
     
     P3
 
-    # [Message, MUST BE ONE LINE]
+    # [Additional Notes, MUST BE ONE LINE]
 
     [Row] [Col]
 
@@ -18,6 +18,6 @@ Else, you can use the following format:
     [B6] [B7] [Random Value]
 
     ...
-    
+
 }
 note: One character contains 8 bits. To keep things even, every 9th RGB value is skipped.
