@@ -2,7 +2,7 @@
 using namespace std;
 #include <fstream>
 #include <vector>
-#include "Steganography.h";
+#include "Steganography.h"
 
 int main()
 {
